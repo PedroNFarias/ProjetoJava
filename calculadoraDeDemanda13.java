@@ -1,3 +1,3 @@
-public class calculadoraDeDemanda13 extends CalculadoraDeDemanda(){
+public class calculadoraDeDemanda13 extends calculadoraDeDemanda(){
     
 }
