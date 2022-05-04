@@ -1,22 +1,22 @@
 public class calculadoraDeDemanda{
-    protected float cargaA;
-    protected float demandaA;
-    protected float cargaB;
-    protected float demandaB;
-    protected float cargaC;
-    protected float demandaC;
-    protected float cargaD;
-    protected float demandaD;
-    protected float cargaE;
-    protected float demandaE;
-    protected float cargaF;
-    protected float demandaF;
-    protected float cargaG;
-    protected float demandaG;
-    protected float cargaH;
-    protected float demandaH;
-    protected float cargaI;
-    protected float demandaI;
+    protected float cargaA; //Carga tomadas e lâmpadas
+    protected float demandaA; //Demanda tomadas e lâmpadas
+    protected float cargaB; //Carga torneira, chuveir, ferro elétrico e aquecedor de água de passagem
+    protected float demandaB; //Demanda torneira, chuveir, ferro elétrico e aquecedor de água de passagem
+    protected float cargaC; //Carga aquecedor central
+    protected float demandaC; //Demanda aquecedor central
+    protected float cargaD; //Carga secadora de roupa, forno elétrico, máquina de lavar louça, e forno microondas
+    protected float demandaD; //Demanda secadora de roupa, forno elétrico, máquina de lavar louça, e forno microondas
+    protected float cargaE; //Carga fogões elétricos
+    protected float demandaE; //Demanda fogões elétricos
+    protected float cargaF; //Carga condicionador de ar tipo janela
+    protected float demandaF; //Demanda condicionador de ar tipo janela
+    protected float cargaG; //Carga motores e máquinas de solda a motor:
+    protected float demandaG; //Demanda motores e máquinas de solda a motor:
+    protected float cargaH; //Carga Equipamentos Especiais
+    protected float demandaH; //Demanda Equipamentos Especiais
+    protected float cargaI; //Carga hidromassagem
+    protected float demandaI; //Demanda hidromassagem
 
     //Equipamentos B
     protected int qtdChuveiro;
@@ -40,6 +40,14 @@ public class calculadoraDeDemanda{
 
     //Equipamentos F
     protected int qtdCondicionadorDeAr;
+    protected int qtd7500BTUs;
+    protected int qtd9000BTUs;
+    protected int qtd10000BTUs;
+    protected int qtd12000BTUs;
+    protected int qtd14000BTUs;
+    protected int qtd18000BTUs;
+    protected int qtd21000BTUs;
+    protected int qtd30000BTUs;
 
     //Equipamentos G
     protected int qtdMaquinasDeSolda;
@@ -232,12 +240,72 @@ public class calculadoraDeDemanda{
     public void setQtdFogoesEletricos(int qtdFogoesEletricos) {
         this.qtdFogoesEletricos = qtdFogoesEletricos;
     }
+    /////////////////////////////Getters e setters de condicionadores de ar///////////////////////////////////////////
     public int getQtdCondicionadorDeAr() {
         return qtdCondicionadorDeAr;
     }
     public void setQtdCondicionadorDeAr(int qtdCondicionadorDeAr) {
         this.qtdCondicionadorDeAr = qtdCondicionadorDeAr;
     }
+    ////////////////////////////por BTUs///////////////////////////
+    ////////////7500BTUs////////////
+    public int getQtd7500BTUs(){
+        return qtd7500BTUs;
+    }
+    public void setQtd7500BTUs(int qtd7500BTUs){
+        this.qtd7500BTUs = qtd7500BTUs;
+    }
+    ////////////9000BTUs////////////
+    public int getQtd9000BTUs(){
+        return qtd9000BTUs;
+    }
+    public void setQtd9000BTUs(int qtd9000BTUs){
+        this.qtd9000BTUs = qtd9000BTUs;
+    }
+    ////////////10000BTUs////////////
+    public int getQtd10000BTUs(){
+        return qtd10000BTUs;
+    }
+    public void setQtd10000BTUs(int qtd10000BTUs){
+        this.qtd10000BTUs = qtd10000BTUs;
+    }
+    ////////////12000BTUs////////////
+    public int getQtd12000BTUs(){
+        return qtd12000BTUs;
+    }
+    public void setQtd12000BTUs(int qtd12000BTUs){
+        this.qtd12000BTUs = qtd12000BTUs;
+    }
+    ////////////14000BTUs////////////
+    public int getQtd14000BTUs(){
+        return qtd14000BTUs;
+    }
+    public void setQtd14000BTUs(int qtd14000BTUs){
+        this.qtd14000BTUs = qtd14000BTUs;
+    }
+    ////////////18000BTUs////////////
+    public int getQtd18000BTUs(){
+        return qtd18000BTUs;
+    }
+    public void setQtd18000BTUs(int qtd18000BTUs){
+        this.qtd18000BTUs = qtd18000BTUs;
+    }
+    ////////////21000BTUs////////////
+    public int getQtd21000BTUs(){
+        return qtd21000BTUs;
+    }
+    public void setQtd21000BTUs(int qtd21000BTUs){
+        this.qtd21000BTUs = qtd21000BTUs;
+    }
+    ////////////30000BTUs////////////
+    public int getQtd30000BTUs(){
+        return qtd30000BTUs;
+    }
+    public void setQtd30000BTUs(int qtd30000BTUs){
+        this.qtd30000BTUs = qtd30000BTUs;
+    }
+    
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public int getQtdMaquinasDeSolda() {
         return qtdMaquinasDeSolda;
     }
