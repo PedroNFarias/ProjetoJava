@@ -51,6 +51,8 @@ public class calculadoraDeDemanda{
 
     //Equipamentos G
     protected int qtdMaquinasDeSolda;
+    protected int qtdMotores;
+    protected int qtdEquipamentosG;
 
     //Equipamentos H
     protected int qtdMaquinasEspeciais;
@@ -240,7 +242,7 @@ public class calculadoraDeDemanda{
     public void setQtdFogoesEletricos(int qtdFogoesEletricos) {
         this.qtdFogoesEletricos = qtdFogoesEletricos;
     }
-    /////////////////////////////Getters e setters de condicionadores de ar///////////////////////////////////////////
+    /////////////////////Equipamentos F/////////////////////
     public int getQtdCondicionadorDeAr() {
         return qtdCondicionadorDeAr;
     }
@@ -304,27 +306,43 @@ public class calculadoraDeDemanda{
     public void setQtd30000BTUs(int qtd30000BTUs){
         this.qtd30000BTUs = qtd30000BTUs;
     }
-    
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////Equipamentos F/////////////////////
+    /////////////////////Equipamentos G/////////////////////
+    public int getQtdEquipamentosG(){
+        return qtdEquipamentosG;
+    }
+    public void setQtdEquipamentosG(int qtdEquipamentosG){
+        this.qtdEquipamentosG = qtdEquipamentosG;
+    }
     public int getQtdMaquinasDeSolda() {
         return qtdMaquinasDeSolda;
     }
     public void setQtdMaquinasDeSolda(int qtdMaquinasDeSolda) {
         this.qtdMaquinasDeSolda = qtdMaquinasDeSolda;
     }
+    public int getQtdMotores(){
+        return qtdMotores;
+    }
+    public void setQtdMotores(int qtdMotores){
+        this.qtdMotores = qtdMotores;
+    }
+    /////////////////////Equipamentos G/////////////////////
+    /////////////////////Equipamentos H/////////////////////
     public int getQtdMaquinasEspeciais() {
         return qtdMaquinasEspeciais;
     }
     public void setQtdMaquinasEspeciais(int qtdMaquinasEspeciais) {
         this.qtdMaquinasEspeciais = qtdMaquinasEspeciais;
     }
+    /////////////////////Equipamentos H/////////////////////
+    /////////////////////Equipamentos I/////////////////////
     public int getQtdHidromassagens() {
         return qtdHidromassagens;
     }
     public void setQtdHidromassagens(int qtdHidromassagens) {
         this.qtdHidromassagens = qtdHidromassagens;
     }
+    /////////////////////Equipamentos I/////////////////////
     
     
-
 }

@@ -1,10 +1,13 @@
 public class calculadoraDeDemanda13 extends calculadoraDeDemanda{
-    private static final float demandasA[] = {0.86f, 0.75f, 0.66f, 0.59f, 0.52f, 0.45f, 0.40f, 0.35f, 0.31f, 0.27f, 0.24f};
+    private static final float demandasA[] = {.86f, .75f, .66f, .59f, .52f, .45f, .40f, .35f, .31f, .27f, .24f};
     private static final float demandasB[] = {1f, 1f, .84f, .76f, .70f, .65f, .60f, .57f, .54f, .52f, .49f, .48f, .46f, .45f, .44f, .43f, .42f, .41f, .40f, .40f, .39f, .39f, .39f, .38f, .38f, .38f};
     private static final float demandasC[] = {1f, .72f, .62f};
     private static final float demandasD[] = {1f, .7f, .7f, .7f, .6f, .6f, .5f, .5f};
     private static final float demandasE[] = {1f, .6f, .48f, .4f, .37f, .35f, .33f, .32f, .31f, .3f, .3f, .28f, .28f, .28f, .28f, .26f};
-    
+    private static final float demandasF[] = {1f, .9f, .82f, .8f, .77f, .75f};
+    private static final float demandasG[] = {1f, .9f, .8f, .8f, .8f, .7f};
+    private static final float demandasH[] = {};
+    private static final float demandasI[] = {};
     //retorna a demanda total de tomadas e lâmpadas
     public float demandaA(){
         /*((int)Math.ceil(cargaA/1000f))-1
@@ -101,7 +104,53 @@ public class calculadoraDeDemanda13 extends calculadoraDeDemanda{
     }
 
     public float demandaF(){
-        
+        //Soma dos condicionadores de ar
+        qtdCondicionadorDeAr = qtd9000BTUs + qtd10000BTUs + qtd12000BTUs + qtd14000BTUs + qtd18000BTUs + qtd21000BTUs + qtd30000BTUs;
+        //Se não tiver nenhum equipamento do tipo E a demanda é 0
+        if(qtdCondicionadorDeAr > 0){
+            //.length retorna o tamanho do vetor e resolve o problema dos números arbitrários
+            if(qtdCondicionadorDeAr/10 <= demandasF.length){
+                demandaF = cargaF * demandasF[(qtdCondicionadorDeAr - 1)/10];
+            }else{
+                demandaF = cargaF * demandasF[demandasF.length - 1];
+            }
+        }else{
+            demandaF = 0;
+        }
         return demandaF;
+    }
+
+    //Demandas de motores e máquinas de solda
+    public float demandaG(){
+        //Soma dos equipamentos tipo G
+        qtdEquipamentosG = qtdMotores + qtdMaquinasDeSolda;
+        //Se não tiver nenhum equipamento do tipo E a demanda é 0
+        if(qtdEquipamentosG > 0){
+            //.length retorna o tamanho do vetor e resolve o problema dos números arbitrários
+            if(qtdEquipamentosG <= demandasG.length){
+                demandaG = cargaG * demandasG[qtdEquipamentosG - 1];
+            }else{
+                demandaG = cargaG * demandasG[demandasG.length - 1];
+            }
+        }else{
+            demandaG = 0;
+        }
+        return demandaG;
+    }
+
+    //Demandas de motores e máquinas de solda
+    public float demandaH(){
+        //Se não tiver nenhum equipamento do tipo E a demanda é 0
+        if(qtdMaquinasEspeciais > 0){
+            //.length retorna o tamanho do vetor e resolve o problema dos números arbitrários
+            if(qtdMaquinasEspeciais <= demandasH.length){
+                demandaH = cargaH * demandasH[qtdMaquinasEspeciais - 1];
+            }else{
+                demandaH = cargaH * demandasH[demandasH.length - 1];
+            }
+        }else{
+            demandaH = 0;
+        }
+        return demandaH;
     }
 }
