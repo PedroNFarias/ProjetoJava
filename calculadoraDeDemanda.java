@@ -13,8 +13,12 @@ public class calculadoraDeDemanda{
     protected float demandaF; //Demanda condicionador de ar tipo janela
     protected float cargaG; //Carga motores e máquinas de solda a motor:
     protected float demandaG; //Demanda motores e máquinas de solda a motor:
+    //////////////////////Equipamentos H////////////////////////////
     protected float cargaH; //Carga Equipamentos Especiais
     protected float demandaH; //Demanda Equipamentos Especiais
+    protected float cargaAparelhoDeSoldaAArco;
+    protected float cargaAparelhoRaioX;
+    protected float cargaAparelhoSoldaAResistencia;
     protected float cargaI; //Carga hidromassagem
     protected float demandaI; //Demanda hidromassagem
 
@@ -55,7 +59,10 @@ public class calculadoraDeDemanda{
     protected int qtdEquipamentosG;
 
     //Equipamentos H
-    protected int qtdMaquinasEspeciais;
+    protected int qtdAparelhoDeSoldaAArco;
+    protected int qtdAparelhoRaioX;
+    protected int qtdAparelhoSoldaAResistencia;
+    protected int qtdEquipamentosH;
 
     //Equipamentos I
     protected int qtdHidromassagens;
@@ -328,11 +335,29 @@ public class calculadoraDeDemanda{
     }
     /////////////////////Equipamentos G/////////////////////
     /////////////////////Equipamentos H/////////////////////
-    public int getQtdMaquinasEspeciais() {
-        return qtdMaquinasEspeciais;
+    public int getQtdEquipamentosH(){
+        return qtdEquipamentosH;
     }
-    public void setQtdMaquinasEspeciais(int qtdMaquinasEspeciais) {
-        this.qtdMaquinasEspeciais = qtdMaquinasEspeciais;
+    public void setQtdEquipamentosH(int qtdEquipamentosH){
+        this.qtdEquipamentosH = qtdEquipamentosH;
+    }
+    public int getQtdMaquinaDeSoldaAArco() {
+        return qtdAparelhoDeSoldaAArco;
+    }
+    public void setQtdMaquinaDeSoldaAArco(int qtdMaquinaDeSoldaAArco) {
+        this.qtdAparelhoDeSoldaAArco = qtdMaquinaDeSoldaAArco;
+    }
+    public int getQtdAparelhoRaioX() {
+        return qtdAparelhoRaioX;
+    }
+    public void setQtdAparelhoRaioX(int qtdAparelhoRaioX) {
+        this.qtdAparelhoRaioX = qtdAparelhoRaioX;
+    }
+    public int getQtdAparelhosSoldaAResistencia() {
+        return qtdAparelhoSoldaAResistencia;
+    }
+    public void setQtdAparelhosSoldaAResistencia(int qtdAparelhosSoldaAResistencia) {
+        this.qtdAparelhoSoldaAResistencia = qtdAparelhosSoldaAResistencia;
     }
     /////////////////////Equipamentos H/////////////////////
     /////////////////////Equipamentos I/////////////////////

@@ -6,8 +6,13 @@ public class calculadoraDeDemanda13 extends calculadoraDeDemanda{
     private static final float demandasE[] = {1f, .6f, .48f, .4f, .37f, .35f, .33f, .32f, .31f, .3f, .3f, .28f, .28f, .28f, .28f, .26f};
     private static final float demandasF[] = {1f, .9f, .82f, .8f, .77f, .75f};
     private static final float demandasG[] = {1f, .9f, .8f, .8f, .8f, .7f};
-    private static final float demandasH[] = {};
-    private static final float demandasI[] = {};
+    /////////////////Demandas H são separadas///////////////////////////////////
+    private static final float demandasSoldaAArco[] = {1f, .7f, .4f, .3f};
+    private static final float demandasSoldaAResistencia[] = {1f, .6f};
+    private static final float demandasAparelhoRaioX[] = {1f, .7f};
+    ////////////////////////////////////////////////////////////////////////////
+    private static final float demandasI[] = {1f, .9f, .8f, .8f, .8f, .7f};
+
     //retorna a demanda total de tomadas e lâmpadas
     public float demandaA(){
         /*((int)Math.ceil(cargaA/1000f))-1
@@ -106,7 +111,7 @@ public class calculadoraDeDemanda13 extends calculadoraDeDemanda{
     public float demandaF(){
         //Soma dos condicionadores de ar
         qtdCondicionadorDeAr = qtd9000BTUs + qtd10000BTUs + qtd12000BTUs + qtd14000BTUs + qtd18000BTUs + qtd21000BTUs + qtd30000BTUs;
-        //Se não tiver nenhum equipamento do tipo E a demanda é 0
+        //Se não tiver nenhum equipamento do tipo F a demanda é 0
         if(qtdCondicionadorDeAr > 0){
             //.length retorna o tamanho do vetor e resolve o problema dos números arbitrários
             if(qtdCondicionadorDeAr/10 <= demandasF.length){
@@ -124,7 +129,7 @@ public class calculadoraDeDemanda13 extends calculadoraDeDemanda{
     public float demandaG(){
         //Soma dos equipamentos tipo G
         qtdEquipamentosG = qtdMotores + qtdMaquinasDeSolda;
-        //Se não tiver nenhum equipamento do tipo E a demanda é 0
+        //Se não tiver nenhum equipamento do tipo G a demanda é 0
         if(qtdEquipamentosG > 0){
             //.length retorna o tamanho do vetor e resolve o problema dos números arbitrários
             if(qtdEquipamentosG <= demandasG.length){
@@ -138,19 +143,60 @@ public class calculadoraDeDemanda13 extends calculadoraDeDemanda{
         return demandaG;
     }
 
-    //Demandas de motores e máquinas de solda
+    //Demandas de equipamentos especiais
     public float demandaH(){
-        //Se não tiver nenhum equipamento do tipo E a demanda é 0
-        if(qtdMaquinasEspeciais > 0){
+        float demandaAparelhoRaioX;
+        float demandaSoldaAArco;
+        float demandaSoldaAResistencia;
+        //Se não tiver nenhum equipamento do tipo H a demanda é 0
+        //Demandas H 
+        if(qtdAparelhoRaioX > 0){
             //.length retorna o tamanho do vetor e resolve o problema dos números arbitrários
-            if(qtdMaquinasEspeciais <= demandasH.length){
-                demandaH = cargaH * demandasH[qtdMaquinasEspeciais - 1];
+            if(qtdAparelhoRaioX <= demandasAparelhoRaioX.length){
+                demandaAparelhoRaioX = cargaAparelhoRaioX * demandasAparelhoRaioX[qtdAparelhoRaioX - 1];
             }else{
-                demandaH = cargaH * demandasH[demandasH.length - 1];
+                demandaAparelhoRaioX = cargaAparelhoRaioX * demandasAparelhoRaioX[demandasAparelhoRaioX.length - 1];
             }
         }else{
-            demandaH = 0;
+            demandaAparelhoRaioX = 0;
         }
+        if(qtdAparelhoDeSoldaAArco > 0){
+            //.length retorna o tamanho do vetor e resolve o problema dos números arbitrários
+            if(qtdAparelhoDeSoldaAArco <= demandasSoldaAArco.length){
+                demandaSoldaAArco = cargaAparelhoDeSoldaAArco * demandasSoldaAArco[qtdAparelhoDeSoldaAArco - 1];
+            }else{
+                demandaSoldaAArco = cargaAparelhoDeSoldaAArco * demandasSoldaAArco[demandasSoldaAArco.length - 1];
+            }
+        }else{
+            demandaSoldaAArco = 0;
+        }
+        if(qtdAparelhoRaioX > 0){
+            //.length retorna o tamanho do vetor e resolve o problema dos números arbitrários
+            if(qtdAparelhoSoldaAResistencia <= demandasSoldaAResistencia.length){
+                demandaSoldaAResistencia = cargaAparelhoSoldaAResistencia * demandasSoldaAResistencia[qtdAparelhoSoldaAResistencia - 1];
+            }else{
+                demandaSoldaAResistencia = cargaAparelhoSoldaAResistencia * demandasSoldaAResistencia[demandasSoldaAResistencia.length - 1];
+            }
+        }else{
+            demandaSoldaAResistencia = 0;
+        }
+        demandaH = demandaAparelhoRaioX + demandaSoldaAArco + demandaSoldaAResistencia;
         return demandaH;
+ 
     }
+    
+    public float demandaI(){
+
+        if(qtdHidromassagens > 0){
+            //.length retorna o tamanho do vetor e resolve o problema dos números arbitrários
+            if(qtdHidromassagens <= demandasI.length){
+                demandaI = cargaI * demandasI[qtdHidromassagens - 1];
+            }else{
+                demandaI = cargaI * demandasI[demandasI.length - 1];
+            }
+        }else{
+            demandaI = 0;
+        }
+        return demandaI;
+    }   
 }
